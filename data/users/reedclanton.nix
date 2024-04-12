@@ -14,6 +14,7 @@
 	shell = {
 		aliases = {
 			c = "clear;pwd;ls -GAp";
+      e = "eza";
 			eixt = "exit";
       f = "fzf";
 			g = "c;git branch -a;git status";
@@ -34,6 +35,7 @@
 		completion = true;
 		history = {
 			ignore = [
+        " *"
 				"btop"
 				"c"
 				"clear;neofetch;pwd;ls -GAp"
