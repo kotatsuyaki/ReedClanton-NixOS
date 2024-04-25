@@ -72,8 +72,8 @@
 							## External Module(s) ##
 							sops-nix.homeManagerModules.sops
 							## Configuration ##
-							# Basic Home Manager setup.
-							(if builtins.pathExists ./users/${user.name}/home then ./users/${user.name}/home else ./do-nothing.nix)
+							# This shale be the only entry to the Home Manager configuration.
+							(if builtins.pathExists ./users/${user.name}/home/default.nix then ./users/${user.name}/home else ./do-nothing.nix)
 						] ++ extraHomeModules;
 					};
 				}
@@ -90,14 +90,12 @@
 					## Module(s) ##
 					nix-flatpak.nixosModules.nix-flatpak
 					## Configuration ##
-					./modules/gui/gnome
+					./modules/nixos/gui/gnome
 				]
 				# Additional Home Manager module(s).
 				[
 					## Module(s) ##
 					nix-flatpak.homeManagerModules.nix-flatpak
-					## Configuration ##
-          # NoOp
 				];
 			nixos-desktop-hyprland = mkComputer
 				# Name of host and UI.
@@ -108,14 +106,12 @@
 					## Module(s) ##
 					nix-flatpak.nixosModules.nix-flatpak
 					## Configuration ##
-					./modules/gui/hyprland
+					./modules/nixos/gui/hyprland
 				]
 				# Additional Home Manager module(s).
 				[
 					## Module(s) ##
 					nix-flatpak.homeManagerModules.nix-flatpak
-					## Configuration ##
-          # NoOp
 				];
 			nixos-desktop-kde = mkComputer
 				# Name of host and UI.
@@ -126,14 +122,12 @@
 					## Module(s) ##
 					nix-flatpak.nixosModules.nix-flatpak
 					## Configuration ##
-					./modules/gui/kde
+					./modules/nixos/gui/kde
 				]
 				# Additional Home Manager module(s).
 				[
 					## Module(s) ##
 					nix-flatpak.homeManagerModules.nix-flatpak
-					## Configuration ##
-          # NoOp
 				];
 			nixos-desktop-tty = mkComputer
 				# Name of host and UI.
@@ -152,14 +146,12 @@
           ## Module(s) ##
           nix-flatpak.nixosModules.nix-flatpak
           ## Configuration ##
-          ./modules/gui/xfce
+          ./modules/nixos/gui/xfce
         ]
         # Additional Home Manager module(s).
         [
           ## Module(s) ##
           nix-flatpak.homeManagerModules.nix-flatpak
-          ## Configuration ##
-          # NoOp
         ];
 			nixos-framework13-gnome = mkComputer
 				# Name of host and UI.
@@ -171,14 +163,12 @@
 					nixos-hardware.nixosModules.framework-11th-gen-intel
 					nix-flatpak.nixosModules.nix-flatpak
 					## Configuration ##
-					./modules/gui/gnome
+					./modules/nixos/gui/gnome
 				]
 				# Additional Home Manager module(s).
 				[
 					## Module(s) ##
 					nix-flatpak.homeManagerModules.nix-flatpak
-					## Configuration ##
-          # NoOp
 				];
 			nixos-framework13-hyprland = mkComputer
 				# Name of host and UI.
@@ -190,14 +180,12 @@
 					nixos-hardware.nixosModules.framework-11th-gen-intel
 					nix-flatpak.nixosModules.nix-flatpak
 					## Configuration ##
-					./modules/gui/hyprland
+					./modules/nixos/gui/hyprland
 				]
 				# Additional Home Manager module(s).
 				[
 					## Module(s) ##
 					nix-flatpak.homeManagerModules.nix-flatpak
-					## Configuration ##
-          # NoOp
 				];
 			nixos-framework13-kde = mkComputer
 				# Name of host and UI.
@@ -209,14 +197,12 @@
 					nixos-hardware.nixosModules.framework-11th-gen-intel
 					nix-flatpak.nixosModules.nix-flatpak
 					## Configuration ##
-					./modules/gui/kde
+					./modules/nixos/gui/kde
 				]
 				# Additional Home Manager module(s).
 				[
 					## Module(s) ##
 					nix-flatpak.homeManagerModules.nix-flatpak
-					## Configuration ##
-          # NoOp
 				];
 			nixos-framework13-tty = mkComputer
 				# Name of host and UI.
@@ -239,14 +225,12 @@
           nixos-hardware.nixosModules.framework-11th-gen-intel
           nix-flatpak.nixosModules.nix-flatpak
           ## Configuration ##
-          ./modules/gui/xfce
+          ./modules/nixos/gui/xfce
         ]
         # Additional Home Manager module(s).
         [
           ## Module(s) ##
           nix-flatpak.homeManagerModules.nix-flatpak
-          ## Configuration ##
-          # NoOp
         ];
 			nixos-vm-gnome = mkComputer
 				# Name of host and UI.
@@ -257,14 +241,12 @@
 					## Module(s) ##
 					nix-flatpak.nixosModules.nix-flatpak
 					## Configuration ##
-					./modules/gui/gnome
+					./modules/nixos/gui/gnome
 				]
 				# Additional Home Manager module(s).
 				[
 					## Module(s) ##
 					nix-flatpak.homeManagerModules.nix-flatpak
-					## Configuration ##
-          # NoOp
 				];
 			nixos-vm-hyprland = mkComputer
 				# Name of host and UI.
@@ -275,14 +257,12 @@
 					## Module(s) ##
 					nix-flatpak.nixosModules.nix-flatpak
 					## Configuration ##
-					./modules/gui/hyprland
+					./modules/nixos/gui/hyprland
 				]
 				# Additional Home Manager module(s).
 				[
 					## Module(s) ##
 					nix-flatpak.homeManagerModules.nix-flatpak
-					## Configuration ##
-          # NoOp
 				];
 			nixos-vm-kde = mkComputer
 				# Name of host and UI.
@@ -293,14 +273,12 @@
 					## Module(s) ##
 					nix-flatpak.nixosModules.nix-flatpak
 					## Configuration ##
-					./modules/gui/kde
+					./modules/nixos/gui/kde
 				]
 				# Additional Home Manager module(s).
 				[
 					## Module(s) ##
 					nix-flatpak.homeManagerModules.nix-flatpak
-					## Configuration ##
-          # NoOp
 				];
 			nixos-vm-tty = mkComputer
 				# Name of host and UI.
@@ -319,14 +297,12 @@
           ## Module(s) ##
           nix-flatpak.nixosModules.nix-flatpak
           ## Configuration ##
-          ./modules/gui/xfce
+          ./modules/nixos/gui/xfce
         ]
         # Additional Home Manager module(s).
         [
           ## Module(s) ##
           nix-flatpak.homeManagerModules.nix-flatpak
-          ## Configuration ##
-          # NoOp
         ];
 		};
 	};

@@ -15,10 +15,10 @@ let
 	validFiles = dir: map
 		(file: ./. + "/${file}")
 		(filter
-			(file: hasSuffix ".nix" file && file != "default.nix")
+			(file: hasSuffix ".nix" file && ! hasSuffix "default.nix" file)
 			(files dir)
 		);
 in {
-	imports = validFiles ./.;
+	imports = validFiles ./. ++ [ ../../../../../../../../modules/home-manager/applications/gui/flatpaks/applications ];
 }
 
